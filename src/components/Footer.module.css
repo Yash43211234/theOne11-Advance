@@ -1,0 +1,111 @@
+/* src/components/Footer.module.css */
+.footer {
+    background-color: var(--color-charcoal-black);
+    padding-top: 2.5rem; /* py-10 */
+    padding-bottom: 2.5rem; /* py-10 */
+    padding-left: 1.5rem; /* px-6 */
+    padding-right: 1.5rem; /* px-6 */
+}
+
+.container {
+    max-width: 80rem; /* mx-auto */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: var(--color-cream-white);
+}
+
+.linksGroup {
+    display: flex;
+    flex-direction: column; /* flex-col */
+    align-items: center; /* items-center */
+    gap: 1rem; /* space-y-4 */
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+
+@media (min-width: 768px) { /* md */
+    .linksGroup {
+        flex-direction: row; /* md:flex-row */
+        justify-content: center; /* md:justify-center */
+        gap: 2rem; /* md:space-x-8 */
+    }
+}
+
+.footerLink {
+    color: var(--color-cream-white);
+    text-decoration: none;
+    font-size: 1.125rem; /* text-lg */
+    transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+    color: var(--color-primary-red);
+}
+
+.footerLinkRed {
+    color: var(--color-primary-red);
+    text-decoration: none;
+    font-size: 1.125rem; /* text-lg */
+    transition: color 0.3s ease;
+}
+
+.footerLinkRed:hover {
+    color: var(--color-primary-red); /* Stays red, perhaps just underline or slightly different shade */
+    text-decoration: underline;
+}
+
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* space-x-6 */
+    font-size: 1.5rem; /* text-2xl */
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.socialLink {
+    color: var(--color-cream-white);
+    transition: color 0.3s ease;
+}
+
+.socialLink:hover {
+    color: var(--color-primary-red);
+}
+
+.legalLinks {
+    display: flex;
+    flex-direction: column; /* flex-col */
+    align-items: center; /* items-center */
+    gap: 0.5rem; /* space-y-2 */
+    margin-bottom: 1rem; /* mb-4 */
+}
+
+@media (min-width: 768px) { /* md */
+    .legalLinks {
+        flex-direction: row; /* md:flex-row */
+        justify-content: center; /* md:justify-center */
+        gap: 2rem; /* md:space-x-8 */
+    }
+}
+
+.footerLinkSmall {
+    color: var(--color-cream-white);
+    text-decoration: none;
+    font-size: 0.875rem; /* text-sm */
+    transition: color 0.3s ease;
+}
+
+@media (min-width: 768px) { /* md */
+    .footerLinkSmall {
+        font-size: 1rem; /* md:text-base */
+    }
+}
+
+.footerLinkSmall:hover {
+    color: var(--color-primary-red);
+}
+
+.copyright {
+    font-size: 0.875rem; /* text-sm */
+    color: rgba(107, 114, 128, 1); /* text-gray-500 */
+}

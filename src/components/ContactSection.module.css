@@ -1,0 +1,163 @@
+/* src/components/ContactSection.module.css */
+
+.contactSection {
+    padding-top: 4rem; /* py-16 */
+    padding-bottom: 4rem; /* py-16 */
+    background-color: var(--color-charcoal-black); /* Dark background from design */
+}
+
+@media (min-width: 768px) { /* md */
+    .contactSection {
+        padding-top: 6rem; /* md:py-24 */
+        padding-bottom: 6rem; /* md:py-24 */
+    }
+}
+
+.container {
+    max-width: 80rem; /* container mx-auto */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem; /* px-6 */
+    padding-right: 1.5rem; /* px-6 */
+    text-align: center; /* Center align all content */
+    display: flex; /* Use flexbox for vertical stacking */
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    gap: 2rem; /* Consistent vertical spacing between main blocks */
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    font-family: var(--font-null-feel);
+    color: var(--color-cream-white);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (min-width: 640px) { /* sm */
+    .sectionTitle {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.sectionDescription {
+    font-size: 1.1rem;
+    color: var(--color-cream-white);
+    margin-bottom: 0;
+    max-width: 600px;
+    line-height: 1.6;
+    padding: 0 1rem; /* Added padding to prevent text from touching edges on small screens */
+}
+
+@media (min-width: 640px) {
+    .sectionDescription {
+        padding: 0; /* Remove extra padding on larger screens */
+    }
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 0;
+    align-items: center;
+    width: 100%;
+}
+
+.contactLink {
+    color: var(--color-cream-white);
+    text-decoration: none;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+    .contactLink {
+        font-size: 1.25rem;
+    }
+}
+
+.contactLink:hover {
+    color: var(--color-primary-accent);
+}
+
+
+.formWrapper {
+    width: 100%; /* Make it take full width of its parent (.container) */
+    max-width: 500px; /* Constrain the form's overall width on larger screens */
+    margin-top: 0;
+    /* Add padding to the formWrapper itself, so its children (inputs) stay within bounds */
+    padding: 0 1.5rem; /* Match the .container's horizontal padding */
+    box-sizing: border-box; /* Crucial: ensures padding is included in the element's total width */
+}
+
+@media (min-width: 640px) {
+    .formWrapper {
+        padding: 0; /* Remove extra padding on larger screens where max-width handles it */
+    }
+}
+
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Space between form fields */
+    width: 100%; /* Ensures the form itself takes up 100% of .formWrapper's width */
+}
+
+.formInput,
+.formTextarea {
+    width: 100%; /* Takes 100% of the *available content space* within its parent due to box-sizing */
+    padding: 1rem 1.25rem; /* Internal padding for input text */
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--color-cream-white);
+    color: var(--color-charcoal-black);
+    font-size: 1rem;
+    outline: none;
+    transition: box-shadow 0.2s ease, border 0.2s ease;
+    box-sizing: border-box; /* Crucial: Ensures padding is included in the element's total width */
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+    color: #888;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+    box-shadow: 0 0 0 2px var(--color-primary-accent);
+    border-color: var(--color-primary-accent);
+}
+
+.formTextarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submitButton {
+    background-color: #e50914;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Takes 100% of the *available content space* */
+    margin-top: 0;
+    box-sizing: border-box; /* Crucial: Ensures padding is included in the element's total width */
+}
+
+.submitButton:hover {
+    background-color: #ff2d3c;
+    transform: translateY(-2px);
+}

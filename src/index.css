@@ -1,0 +1,67 @@
+/* src/index.css */
+
+/* Google Fonts - Imported here or in public/index.html if preferred */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Antonio:wght@300;400;700&display=swap');
+/* Font Awesome - Imported here or in public/index.html if preferred */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+
+/* Custom styles to integrate brand colors and fonts */
+:root {
+    --color-primary-red: #f81a26;
+    --color-cream-white: #faffff;
+    --color-charcoal-black: #171616;
+    --color-dark-charcoal: #333333;
+    --color-electric-blue: #00ffff; /* Added for Sunburn feel */
+    --color-bubblegum-magenta: #ff00ff; /* Added for Sunburn feel */
+    --font-anton: 'Anton', sans-serif;
+    --font-antonio: 'Antonio', sans-serif;
+    --font-null-feel: 'Anton', sans-serif; /* Simulating 'Null' with Anton for impactful headings */
+
+    /* ORBYZ specific colors for background animations */
+    --orbyz-red-light: rgba(255, 64, 64, 0.3);
+    --orbyz-red-medium: rgba(255, 20, 80, 0.3);
+    --orbyz-red-dark: rgba(180, 20, 20, 0.2);
+    --orbyz-orb-gradient-start: rgba(255, 64, 64, 0.6);
+    --orbyz-orb-gradient-end: rgba(180, 20, 20, 0.6);
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-antonio); /* Default body font */
+    background-color: var(--color-charcoal-black);
+    color: var(--color-cream-white);
+    /* Radial gradient to subtly integrate red into the background with more depth */
+    background-image: radial-gradient(at top center, rgba(248, 26, 38, 0.1) 0%, rgba(23, 22, 22, 0.9) 70%, var(--color-charcoal-black) 100%);
+    background-size: cover;
+    background-attachment: fixed; /* Ensures gradient stays fixed while scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-null-feel); /* For major headings */
+}
+
+/* Base button style, to be extended by specific components */
+.btn-primary {
+    background-color: var(--color-primary-red);
+    color: var(--color-cream-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px; /* Fully rounded */
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent; /* For hover effect */
+    cursor: pointer;
+    display: inline-block; /* Ensures padding and width work as expected for links/buttons */
+    text-decoration: none; /* For link buttons */
+}
+
+.btn-primary:hover {
+    background-color: #e01520; /* Slightly darker red on hover */
+    transform: translateY(-3px) scale(1.02); /* More pronounced lift and slight scale */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 0 15px var(--color-primary-red); /* Added red glow */
+    border-color: var(--color-electric-blue); /* Neon border on hover */
+}

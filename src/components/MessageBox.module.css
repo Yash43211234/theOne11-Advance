@@ -1,0 +1,56 @@
+/* src/components/MessageBox.module.css */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker for better contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.content {
+    /* Using CSS Variables for consistent theming */
+    background-color: var(--color-dark-charcoal);
+    color: var(--color-cream-white);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    max-width: 400px;
+    /* Initial state for the animation */
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.overlay.show .content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.text {
+    font-size: 1.125rem; /* Equivalent to text-lg in Tailwind */
+    margin-bottom: 1.5rem; /* Increased slightly for more spacing, adjust as needed */
+    line-height: 1.5; /* Improve readability for longer messages */
+}
+
+.button {
+    /* Correct way to compose styles from another CSS module or global file.
+       Make sure '../index.css' actually contains a class named 'btn-primary'. */
+    composes: btn-primary from '../index.css';
+
+    /* You can add specific overrides or additional styles here if needed */
+    margin-top: 1rem; /* Add some space above the button if desired */
+}
