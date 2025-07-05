@@ -12,9 +12,9 @@ const Footer = () => {
                     <a href="tel:+917477785294" className={styles.footerLink}>+91 7477785294</a>
                 </div>
                 <div className={styles.socialIcons}>
-                    <a href="#" className={styles.socialLink}><i className="fab fa-facebook-f"></i></a>
-                    <a href="#" className={styles.socialLink}><i className="fab fa-twitter"></i></a>
-                    <a href="#" className={styles.socialLink}><i className="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/people/The-One11-Show/61576672565861/?mibextid=rS40aB7S9Ucbxw6v" className={styles.socialLink}><i className="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/theone11show" className={styles.socialLink}><i className="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/theone11.show?igsh=MTVvdTcwcTVvYnM2cw%3D%3D" className={styles.socialLink}><i className="fab fa-instagram"></i></a>
                     <a href="#" className={styles.socialLink}><i className="fab fa-youtube"></i></a>
                 </div>
                 <div className={styles.legalLinks}>

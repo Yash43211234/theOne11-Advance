@@ -1,21 +1,23 @@
 // src/components/Navigation.js
 import React, { useState } from 'react';
 import styles from './Navigation.module.css';
-// The logo is now text, so no image import is needed.
+import { Link } from 'react-router-dom';
+
 
 const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false);
 
 
     const competitionItems = [
-        { title: "Battle of Bands" },
-        { title: "Singer/Songwriter Battle" },
-        { title: "Musicians (Instrumental)" },
-        { title: "Battle of Rappers" },
-        { title: "Battle of DJs" },
-        { title: "48-Hours Music Making Challenge" },
-        { title: "Upcoming Competitions" }
+        { title: "Battle of Bands", slug: "battle-of-bands" },
+        { title: "Singer/Songwriter Battle", slug: "singer-songwriter-battle" },
+        { title: "Musicians (Instrumental)", slug: "musicians-instrumental" },
+        { title: "Battle of Rappers", slug: "battle-of-rappers" },
+        { title: "Battle of DJs", slug: "battle-of-djs" },
+        { title: "48-Hours Music Making Challenge", slug: "48-hours-music-making" },
+        { title: "Upcoming Competitions", slug: "upcoming-competitions" },
     ];
+
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -39,27 +41,38 @@ const Navigation = () => {
 
                 <ul className={`${styles.navMenu} ${isOpen ? styles.active : ''}`}>
                     <li className={styles.navItem}>
-                        <a href="#home" className={styles.navLinks} onClick={toggleMenu}>
+                        <Link to="/" className={styles.navLinks} onClick={toggleMenu}>
                             Home
-                        </a>
+                        </Link>
+
                     </li>
                     <li
                         className={styles.navItem}
                         onMouseEnter={() => setDropdownOpen(true)}
                         onMouseLeave={() => setDropdownOpen(false)}
                     >
-                        <a href="#competitions" className={styles.navLinks} onClick={toggleMenu}>
+                        <a className={styles.navLinks} onClick={toggleMenu}>
                             Competitions
                         </a>
                         {dropdownOpen && (
                             <ul className={styles.dropdown}>
                                 {competitionItems.map((item, index) => (
                                     <li key={index} className={styles.dropdownItem}>
-                                        <a href="#competitions" onClick={toggleMenu}>
+                                        <Link
+                                            to={`/register/${item.slug}`}
+                                            state={{
+                                                title: item.title,
+                                                imgSrc: `https://placehold.co/600x400/333333/00ffff?text=${encodeURIComponent(item.title.replace(/\s+/g, '+'))}`,
+                                                description: "Competition Details", // Optional default
+                                            }}
+                                            className={styles.navLinks}
+                                            onClick={toggleMenu}
+                                        >
                                             {item.title}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
+
                             </ul>
                         )}
                     </li>
@@ -80,7 +93,7 @@ const Navigation = () => {
                     </li>
                     <li className={styles.navItem}>
                         <a href="#contact" className={styles.navLinks} onClick={toggleMenu}>
-                            Contact Us
+                            Contact
                         </a>
                     </li>
                 </ul>
