@@ -92,7 +92,7 @@
 }
 
 .heroTitle {
-    font-size: 3rem; /* text-5xl */
+    font-size: 1rem; /* text-5xl */
     line-height: 1.25; /* leading-tight */
     margin-bottom: 1rem; /* mb-4 */
     color: var(--color-cream-white);
@@ -113,7 +113,7 @@
 
 @media (min-width: 1024px) { /* lg */
     .heroTitle {
-        font-size: 5rem; /* lg:text-8xl */
+        font-size: 2.7rem; /* lg:text-8xl */
     }
 }
 

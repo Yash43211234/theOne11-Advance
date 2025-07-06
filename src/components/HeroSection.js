@@ -25,17 +25,17 @@ const HeroSection = () => {
 
             <div className={styles.heroContent}>
                 <h1 className={styles.heroTitle}>
-                    The One11 Show
+                    Where genres and language won't be your first thought.
                 </h1>
                 <p className={styles.heroSubtitle}>
-                    Join Us in this exciting Music Battle
+                   Join Us in this exciting Music Battle
                 </p>
                 <a
                     href="#competitions"
                     className={`${styles.heroButton} btn-primary`}
                     onClick={handleScrollToCompetitions}
                 >
-                    View Current Competitions
+                   Explore Events
                 </a>
             </div>
         </section>
