@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+/* --- Global Resets & Variables (Optional but good practice) --- */
+:root {
+  --primary-color: red;
+  --secondary-color: #00bcd4;
+  --text-color-light: white;
+  --bg-alpha-light: rgba(255, 255, 255, 0.05);
+  --bg-alpha-dark: rgba(0, 0, 0, 0.5);
+  --blur-strong: blur(12px);
+  --blur-medium: blur(10px);
+  --blur-light: blur(4px);
+  --shadow-strong: 0 4px 10px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.3);
+  --border-light: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 /* ==== Navbar Container ==== */
 .navbar {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-alpha-light);
   height: 80px;
   display: flex;
   justify-content: center;
@@ -11,10 +26,10 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-strong);
+  backdrop-filter: var(--blur-strong);
+  -webkit-backdrop-filter: var(--blur-strong); /* For Safari */
+  border-bottom: var(--border-light);
 }
 
 .navbarContainer {
@@ -30,8 +45,8 @@
 
 /* ==== Logo ==== */
 .navbarLogo {
-  color: red;
-  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--primary-color);
+  background-color: var(--bg-alpha-dark);
   padding: 10px 18px;
   font-size: 1.2rem;
   font-family: 'Bebas Neue', sans-serif;
@@ -40,14 +55,14 @@
   display: flex;
   align-items: center;
   border-radius: 6px;
-  backdrop-filter: blur(4px);
+  backdrop-filter: var(--blur-light);
 }
 
 /* ==== Hamburger Icon ==== */
 .menuIcon {
-  display: none;
+  display: none; /* Hidden by default, shown in mobile */
   font-size: 1.8rem;
-  color: white;
+  color: var(--text-color-light);
   cursor: pointer;
 }
 
@@ -57,6 +72,7 @@
   align-items: center;
   list-style: none;
   margin: 0;
+  padding: 0; /* Ensure no default padding */
   transition: left 0.3s ease-in-out;
 }
 
@@ -72,10 +88,10 @@
 
 /* ==== Nav Links ==== */
 .navLinks {
-  color: white;
+  color: var(--text-color-light);
   text-decoration: none;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px;
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -85,85 +101,52 @@
 }
 
 .navLinks:hover {
-  color: #00bcd4;
+  color: var(--secondary-color);
 }
 
 /* Styles for the arrow image within navLinks */
-.navLinks .arrow img { /* Targeting the image inside .arrow span */
+.navLinks .arrow img {
   height: 14px;
   width: 14px;
   margin-top: 5px;
   margin-left: 6px;
-  /* Add transition for rotation */
   transition: transform 0.3s ease;
 }
 
 .navItem:hover .navLinks .arrow img { 
   transform: rotate(180deg);
 }
-.dropdown1 {
-  position: absolute;
-  top: calc(100% + 20px); /* 20px below the navLink */
-  left: -125px; /* Center relative to .navbarContainer */
-  transform: translateX(-50%) translateY(10px); /* Perfect centering */
-   width: 100vw; 
-  max-width: 1400px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 0;
-  padding: 1rem 2rem;
-  list-style: none;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
 
-  opacity: 0;
-  visibility: hidden; 
-  pointer-events: none;
-
-  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-
+/* --- Dropdown Container --- */
 .dropdown {
   position: absolute;
   top: calc(100% + 20px); /* 20px below the navLink */
-  left: -224px; /* Center relative to .navbarContainer */
-  transform: translateX(-50%) translateY(10px); /* Perfect centering */
-  width: 100vw; 
-  max-width: 1400px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 0;
-  padding: 1rem 2rem;
+  left: 50%; /* Position the left edge at 50% of parent */
+  transform: translateX(-50%) translateY(10px); /* Center and initially push down */
+  background: var(--bg-alpha-light);
+  backdrop-filter: var(--blur-medium);
+  -webkit-backdrop-filter: var(--blur-medium);
+  border-radius: 0; /* Assuming no border-radius for dropdown itself */
+  padding: 0.2rem 0.2rem; /* Slightly more padding for better spacing */
   list-style: none;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-medium);
   z-index: 1000;
-
   opacity: 0;
   visibility: hidden; 
   pointer-events: none;
-
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
-
+  
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-
-  /* ❌ REMOVE this line (breaks centering!) */
-  /* margin-left: -300px; */
+  flex-wrap: wrap; /* Allows items to wrap onto new lines */
+  justify-content: center; /* Centers items horizontally within the dropdown */
+  gap: 1rem; /* Space between dropdown items */
+  max-width: 800px; /* Adjust as needed based on content */
+  width: auto; /* Allow width to be determined by content, up to max-width */
+  min-width: 200px; /* Ensure a minimum width */
 }
 
-
 /* State for when the dropdown should be visible (e.g., when homeDropdown/eventsDropdown state is true) */
-.dropdownVisible { /* This class will be applied conditionally in React */
+.dropdownVisible { 
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -172,7 +155,7 @@
 }
 
 .dropdownItem {
-  border-bottom: none; 
+  /* No border-bottom needed as per original comment */
   width: auto; /* Allow items to size naturally within the flex container */
   flex-basis: 200px; /* Suggest a minimum width for items before wrapping */
   text-align: center; /* Center text within each item */
@@ -181,11 +164,11 @@
 /* ==== Dropdown Link with Underline Hover ==== */
 .dropdownLink {
   display: block; /* Important for full clickable area and padding */
-  padding: 12px 18px;
+  padding: 5px 10px; /* Adjusted padding for better click area */
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.7rem;
   text-transform: uppercase;
-  color: white;
+  color: var(--text-color-light);
   text-decoration: none;
   transition: background 0.3s, color 0.3s;
   position: relative;
@@ -202,7 +185,7 @@
   left: 50%;
   width: 0;
   height: 4px;
-  background-color: rgb(182, 3, 3);
+  background-color: rgb(182, 3, 3); /* Specific red for underline */
   transition: width 0.4s ease, left 0.4s ease;
 }
 
@@ -212,8 +195,8 @@
 }
 
 .dropdownLink:hover {
-  background-color: red;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
 }
 
 /* ==== Mobile Styles ==== */
@@ -223,14 +206,14 @@
   }
 
   .menuIcon {
-    display: block;
+    display: block; /* Show hamburger icon on mobile */
   }
 
   .navMenu {
     flex-direction: column;
     position: absolute;
     top: 80px;
-    left: -100%;
+    left: -100%; /* Initially off-screen */
     width: 100%;
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(8px);
@@ -239,6 +222,7 @@
     padding-bottom: 20px;
     height: calc(100vh - 80px); /* Make mobile menu full height below navbar */
     overflow-y: auto; /* Allow scrolling if menu content is long */
+    align-items: center; /* Center menu items in column */
   }
 
   .navMenu.active {
@@ -261,18 +245,19 @@
   }
 
   /* Reset arrow rotation for mobile menu as dropdown is usually always visible */
-  .navLinks .arrow img { /* Specificity for mobile */
+  .navLinks .arrow img { 
     transform: rotate(0deg) !important; /* Use !important if necessary to override desktop */
   }
 
   .dropdown {
-    position: relative; /* Change to relative for mobile to flow with content */
+    position: static; /* Change to static for mobile to flow with content within the navItem */
     margin-top: 0;
     box-shadow: none;
     background-color: transparent;
     backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border-radius: 0;
-    width: 100%;
+    width: 100%; /* Full width for mobile dropdown */
     flex-direction: column; /* Stack dropdown items vertically */
     gap: 0;
     padding: 0;
@@ -283,8 +268,10 @@
     pointer-events: auto;
     transform: none; /* Remove transform from desktop */
     transition: none; /* No transition needed for mobile */
-    height: auto; /* Allow height to adjust */
+    height: auto; /* Allow height to adjust based on content */
     overflow: visible; /* Ensure content is not clipped */
+    max-width: none; /* Remove max-width constraint for mobile */
+    min-width: unset; /* Remove min-width constraint for mobile */
   }
 
   .dropdownItem {
@@ -300,7 +287,7 @@
   }
 
   .dropdownLink:hover {
-    background-color: red;
+    background-color: var(--primary-color);
   }
 
   .dropdownLink::after {

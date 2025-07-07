@@ -1,11 +1,11 @@
 // src/pages/Home.js
 import React, { useState, useEffect, useRef } from 'react';
-import HeroSection from '../components/HeroSection';
-import CompetitionsSection from '../components/CompetitionsSection';
-import EpisodesSection from '../components/EpisodesSection';
-import EventsSection from '../components/EventsSection';
-import ContactSection from '../components/ContactSection';
-import MessageBox from '../components/MessageBox';
+import HeroSection from '../HomeComponents/HeroSection';
+import CompetitionsSection from '../HomeComponents/CompetitionsSection';
+import EpisodesSection from '../HomeComponents/EpisodesSection';
+import EventsSection from '../HomeComponents/EventsSection';
+import ContactSection from '../HomeComponents/ContactSection';
+import MessageBox from '../HomeComponents/MessageBox';
 
 function Home() {
   const [messageBox, setMessageBox] = useState({
